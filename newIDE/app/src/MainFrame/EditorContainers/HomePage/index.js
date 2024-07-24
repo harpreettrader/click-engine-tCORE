@@ -38,6 +38,7 @@ import {
 } from '../../../Utils/Analytics/EventSender';
 import RouterContext, { type RouteArguments } from '../../RouterContext';
 import { type GameDetailsTab } from '../../../GameDashboard/GameDetails';
+import { type Game } from '../../../Utils/GDevelopServices/Game';
 import useGamesList from '../../../GameDashboard/UseGamesList';
 import useDisplayNewFeature from '../../../Utils/UseDisplayNewFeature';
 import HighlightingTooltip from '../../../UI/HighlightingTooltip';
@@ -195,9 +196,9 @@ export const HomePage = React.memo<Props>(
         onResetEducationForm,
       } = useEducationForm({ authenticatedUser });
       const { isMobile } = useResponsiveWindowSize();
-      const {
-        values: { showGetStartedSectionByDefault },
-      } = React.useContext(PreferencesContext);
+      // const {
+      //   values: { showGetStartedSectionByDefault },
+      // } = React.useContext(PreferencesContext);
       const isShopRequestedAtOpening = React.useRef<boolean>(
         isShopRequested(routeArguments)
       );
@@ -208,9 +209,9 @@ export const HomePage = React.memo<Props>(
         ? 'shop'
         : isGamesDashboardRequestedAtOpening.current
         ? 'manage'
-        : showGetStartedSectionByDefault
-        ? 'get-started'
-        : 'build';
+        : // : showGetStartedSectionByDefault
+          // ? 'get-started'
+          'build';
 
       const [activeTab, setActiveTab] = React.useState<HomeTab>(initialTab);
       const [
@@ -464,7 +465,7 @@ export const HomePage = React.memo<Props>(
                       setCurrentTab={setGameDetailsCurrentTab}
                     />
                   )}
-                  {activeTab === 'get-started' && (
+                  {/* {activeTab === 'get-started' && (
                     <GetStartedSection
                       selectInAppTutorial={selectInAppTutorial}
                       onUserSurveyStarted={onUserSurveyStarted}
@@ -474,7 +475,7 @@ export const HomePage = React.memo<Props>(
                       }
                       onOpenProfile={onOpenProfile}
                     />
-                  )}
+                  )} */}
                   {activeTab === 'build' && (
                     <BuildSection
                       project={project}
@@ -515,7 +516,7 @@ export const HomePage = React.memo<Props>(
                       onOpenProfile={onOpenProfile}
                     />
                   )}
-                  {activeTab === 'team-view' &&
+                  {/* {activeTab === 'team-view' &&
                     (canUseClassroomFeature(limits) ? (
                       <TeamSection
                         project={project}
@@ -537,7 +538,7 @@ export const HomePage = React.memo<Props>(
                         onResetForm={onResetEducationForm}
                         onLogin={onOpenLoginDialog}
                       />
-                    ))}
+                    ))} */}
                 </div>
                 <HomePageMenu
                   activeTab={activeTab}

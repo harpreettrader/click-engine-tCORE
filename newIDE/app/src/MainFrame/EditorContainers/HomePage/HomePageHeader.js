@@ -16,6 +16,7 @@ import { isNativeMobileApp } from '../../../Utils/Platform';
 import NotificationChip from '../../../UI/User/NotificationChip';
 import { useResponsiveWindowSize } from '../../../UI/Responsive/ResponsiveWindowMeasurer';
 import SaveProjectIcon from '../../SaveProjectIcon';
+import { NFTContext } from '../../../context/NFTContext';
 const electron = optionalRequire('electron');
 
 type Props = {|
@@ -36,6 +37,7 @@ export const HomePageHeader = ({
   canSave,
 }: Props) => {
   const { isMobile } = useResponsiveWindowSize();
+  const { connectWallet, currentAccount } = React.useContext(NFTContext);
 
   return (
     <I18n>
@@ -69,14 +71,29 @@ export const HomePageHeader = ({
           </Column>
           <Column>
             <LineStackLayout noMargin alignItems="center">
-              {!electron && !isNativeMobileApp() && (
+              {/* {!electron && !isNativeMobileApp() && (
                 <FlatButton
                   label={<Trans>Get the app</Trans>}
                   onClick={() =>
                     Window.openExternalURL('https://gdevelop.io/download')
                   }
                 />
+              )} */}
+              {/* Gola-k Start */}
+              {/* Connect button */}
+              {currentAccount ? (
+                <FlatButton
+                  label={<Trans>Connected</Trans>}
+                  onClick={() => {}}
+                />
+              ) : (
+                <FlatButton
+                  label={<Trans>Connect</Trans>}
+                  onClick={connectWallet}
+                  // onClick={() => {}}
+                />
               )}
+              {/* Gola-k End */}
               <UserChip onOpenProfile={onOpenProfile} />
               <NotificationChip />
               {isMobile ? (

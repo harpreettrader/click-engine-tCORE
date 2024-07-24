@@ -7,11 +7,11 @@ import IconButton from '../../../UI/IconButton';
 import VerticalTabButton from '../../../UI/VerticalTabButton';
 import DoubleChevronArrowLeft from '../../../UI/CustomSvgIcons/DoubleChevronArrowLeft';
 import PickAxeIcon from '../../../UI/CustomSvgIcons/PickAxe';
-import SchoolIcon from '../../../UI/CustomSvgIcons/School';
+// import SchoolIcon from '../../../UI/CustomSvgIcons/School';
 import GoogleControllerIcon from '../../../UI/CustomSvgIcons/GoogleController';
-import WebIcon from '../../../UI/CustomSvgIcons/Web';
+// import WebIcon from '../../../UI/CustomSvgIcons/Web';
 import BookLeafIcon from '../../../UI/CustomSvgIcons/BookLeaf';
-import SunIcon from '../../../UI/CustomSvgIcons/Sun';
+// import SunIcon from '../../../UI/CustomSvgIcons/Sun';
 import StoreIcon from '../../../UI/CustomSvgIcons/Store';
 import Preferences from '../../../UI/CustomSvgIcons/Preferences';
 import GDevelopGLogo from '../../../UI/CustomSvgIcons/GDevelopGLogo';
@@ -22,7 +22,7 @@ import {
   type Limits,
 } from '../../../Utils/GDevelopServices/Usage';
 import AuthenticatedUserContext from '../../../Profile/AuthenticatedUserContext';
-import GraphsIcon from '../../../UI/CustomSvgIcons/Graphs';
+// import GraphsIcon from '../../../UI/CustomSvgIcons/Graphs';
 import { isNativeMobileApp } from '../../../Utils/Platform';
 
 export const styles = {
@@ -44,14 +44,8 @@ export const styles = {
 };
 
 export type HomeTab =
-  | 'get-started'
-  | 'manage'
-  | 'build'
-  | 'learn'
-  | 'play'
-  | 'community'
-  | 'shop'
-  | 'team-view';
+  // | 'get-started'
+  'manage' | 'build' | 'learn' | 'play' | 'community' | 'shop' | 'team-view';
 
 export type GetIconFunction = ({
   color: string,
@@ -66,14 +60,14 @@ export type HomePageMenuTab = {|
 |};
 
 const homePageMenuTabs: { [tab: string]: HomePageMenuTab } = {
-  'get-started': {
-    label: <Trans>Get Started</Trans>,
-    tab: 'get-started',
-    id: 'home-get-started-tab',
-    getIcon: ({ color, fontSize }) => (
-      <SunIcon fontSize={fontSize} color={color} />
-    ),
-  },
+  // 'get-started': {
+  //   label: <Trans>Get Started</Trans>,
+  //   tab: 'get-started',
+  //   id: 'home-get-started-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <SunIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
   build: {
     label: <Trans>Build</Trans>,
     tab: 'build',
@@ -82,14 +76,14 @@ const homePageMenuTabs: { [tab: string]: HomePageMenuTab } = {
       <PickAxeIcon fontSize={fontSize} color={color} />
     ),
   },
-  manage: {
-    label: <Trans>Manage</Trans>,
-    tab: 'manage',
-    id: 'home-manage-tab',
-    getIcon: ({ color, fontSize }) => (
-      <GraphsIcon fontSize={fontSize} color={color} />
-    ),
-  },
+  // manage: {
+  //   label: <Trans>Manage</Trans>,
+  //   tab: 'manage',
+  //   id: 'home-manage-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <GraphsIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
   shop: {
     label: <Trans>Shop</Trans>,
     tab: 'shop',
@@ -98,14 +92,14 @@ const homePageMenuTabs: { [tab: string]: HomePageMenuTab } = {
       <StoreIcon fontSize={fontSize} color={color} />
     ),
   },
-  learn: {
-    label: <Trans>Learn</Trans>,
-    tab: 'learn',
-    id: 'home-learn-tab',
-    getIcon: ({ color, fontSize }) => (
-      <SchoolIcon fontSize={fontSize} color={color} />
-    ),
-  },
+  // learn: {
+  //   label: <Trans>Learn</Trans>,
+  //   tab: 'learn',
+  //   id: 'home-learn-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <SchoolIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
   play: {
     label: <Trans>Play</Trans>,
     tab: 'play',
@@ -114,22 +108,22 @@ const homePageMenuTabs: { [tab: string]: HomePageMenuTab } = {
       <GoogleControllerIcon fontSize={fontSize} color={color} />
     ),
   },
-  community: {
-    label: <Trans>Community</Trans>,
-    tab: 'community',
-    id: 'home-community-tab',
-    getIcon: ({ color, fontSize }) => (
-      <WebIcon fontSize={fontSize} color={color} />
-    ),
-  },
-  'team-view': {
-    label: <Trans>Classrooms</Trans>,
-    tab: 'team-view',
-    id: 'team-view-tab',
-    getIcon: ({ color, fontSize }) => (
-      <BookLeafIcon fontSize={fontSize} color={color} />
-    ),
-  },
+  // community: {
+  //   label: <Trans>Community</Trans>,
+  //   tab: 'community',
+  //   id: 'home-community-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <WebIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
+  // 'team-view': {
+  //   label: <Trans>Classrooms</Trans>,
+  //   tab: 'team-view',
+  //   id: 'team-view-tab',
+  //   getIcon: ({ color, fontSize }) => (
+  //     <BookLeafIcon fontSize={fontSize} color={color} />
+  //   ),
+  // },
 };
 
 export const getTabsToDisplay = ({
@@ -144,18 +138,18 @@ export const getTabsToDisplay = ({
       limits.capabilities.classrooms.hidePlayTab
     );
   const tabs = [
-    'get-started',
+    // 'get-started',
     'build',
-    canUseClassroomFeature(limits)
-      ? 'team-view'
-      : isNativeMobileApp()
-      ? null
-      : 'team-view',
-    'manage',
+    // canUseClassroomFeature(limits)
+    //   ? 'team-view'
+    //   : isNativeMobileApp()
+    //   ? null
+    //   : 'team-view',
+    // 'manage',
     'shop',
-    'learn',
+    // 'learn',
     displayPlayTab ? 'play' : null,
-    'community',
+    // 'community',
   ].filter(Boolean);
   return tabs.map(tab => homePageMenuTabs[tab]);
 };
@@ -197,9 +191,10 @@ export const HomePageMenu = ({
       ),
     },
     {
-      label: <Trans>About GDevelop</Trans>,
+      label: <Trans>About SpriteSmith</Trans>,
       id: 'about-gdevelop',
-      onClick: onOpenAbout,
+      // onClick: onOpenAbout,
+      onClick: () => {},
       getIcon: ({ color, fontSize }) => (
         <GDevelopGLogo fontSize={fontSize} color={color} />
       ),
