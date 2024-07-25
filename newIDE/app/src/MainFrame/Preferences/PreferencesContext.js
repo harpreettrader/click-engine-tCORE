@@ -279,8 +279,13 @@ export type Preferences = {|
   setHasProjectOpened: (enabled: boolean) => void,
   resetShortcutsToDefault: () => void,
   setShortcutForCommand: (commandName: CommandName, shortcut: string) => void,
-  getNewObjectDialogDefaultTab: () => 'asset-store' | 'new-object',
-  setNewObjectDialogDefaultTab: ('asset-store' | 'new-object') => void,
+  getNewObjectDialogDefaultTab: () =>
+    | 'asset-store'
+    | 'new-object'
+    | 'fetch-nft',
+  setNewObjectDialogDefaultTab: (
+    'asset-store' | 'new-object' | 'fetch-nft'
+  ) => void,
   getShareDialogDefaultTab: () => 'invite' | 'publish',
   setShareDialogDefaultTab: ('invite' | 'publish') => void,
   getIsMenuBarHiddenInPreview: () => boolean,
@@ -335,9 +340,9 @@ export const initialPreferences = {
     themeName:
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'GDevelop default Dark'
+        ? 'ClickEngine default Dark'
         : // TODO: Use the light theme back when it's adapted to the modern theme.
-          'GDevelop default Dark',
+          'ClickEngine default Dark',
     codeEditorThemeName: 'vs-dark',
     hiddenAlertMessages: {},
     hiddenTutorialHints: {},

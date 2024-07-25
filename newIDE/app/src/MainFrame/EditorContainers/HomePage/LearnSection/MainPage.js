@@ -253,7 +253,9 @@ const MainPage = ({
           </Line>
           <Line noMargin>
             <Text noMargin>
-              <Trans>Learn everything about GDevelop from the ground up</Trans>
+              <Trans>
+                Learn everything about ClickEngine from the ground up
+              </Trans>
             </Text>
           </Line>
           {limits &&
@@ -339,9 +341,7 @@ const MainPage = ({
               {!isMobile && (
                 <FlatButton
                   onClick={() => {
-                    Window.openExternalURL(
-                      'https://airtable.com/shrv295oHlsuS69el'
-                    );
+                    Window.openExternalURL('');
                   }}
                   primary
                   leftIcon={<TranslateIcon />}

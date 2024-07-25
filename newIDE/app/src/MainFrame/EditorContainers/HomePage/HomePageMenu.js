@@ -191,7 +191,7 @@ export const HomePageMenu = ({
       ),
     },
     {
-      label: <Trans>About SpriteSmith</Trans>,
+      label: <Trans>About ClickEngine</Trans>,
       id: 'about-gdevelop',
       // onClick: onOpenAbout,
       onClick: () => {},

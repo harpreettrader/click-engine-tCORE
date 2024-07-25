@@ -76,7 +76,7 @@ export const NewResourceDialog = ({
     return 'import';
   });
   const [hasChangedTabs, setHasChangedTabs] = React.useState(false);
-  const [isShowingAdvanced, setIsShowingAdvanced] = React.useState(false);
+  const [isShowingAdvanced, setIsShowingAdvanced] = React.useState(true);
 
   React.useEffect(
     () => {
@@ -138,7 +138,7 @@ export const NewResourceDialog = ({
               onToggle={(e, check) => setIsShowingAdvanced(check)}
               toggled={isShowingAdvanced}
               labelPosition="right"
-              label={<Trans>Show advanced import options</Trans>}
+              label={<Trans>Show advanced import options and NFT</Trans>}
             />
           </Column>
         ) : null,
