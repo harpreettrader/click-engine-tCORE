@@ -54,6 +54,9 @@ import Text from '../UI/Text';
 import { capitalize } from 'lodash';
 import PrivateGameTemplateInformationPage from './PrivateGameTemplates/PrivateGameTemplateInformationPage';
 import { PrivateGameTemplateStoreContext } from './PrivateGameTemplates/PrivateGameTemplateStoreContext';
+import { GridList } from '@material-ui/core';
+import NFTCard from '../MainFrame/EditorContainers/HomePage/BuildSection/NFTCard';
+import { NFTContext } from '../context/NFTContext';
 
 type Props = {|
   hideGameTemplates?: boolean, // TODO: if we add more options, use an array instead.
@@ -550,9 +553,21 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
       ]
     );
 
+    const { fetchNFTs } = React.useContext(NFTContext);
+    const [nfts, setNfts] = React.useState([]);
+    const [nftsCopy, setNftsCopy] = React.useState([]);
+    const [isLoading, setIsLoading] = React.useState(true);
+    React.useEffect(() => {
+      fetchNFTs().then(items => {
+        setNfts(items);
+        setNftsCopy(items);
+        setIsLoading(false);
+      });
+    }, []);
+
     return (
       <Column expand noMargin useFullHeight noOverflowParent id="asset-store">
-        <LineStackLayout>
+        {/* <LineStackLayout>
           <IconButton
             id="home-button"
             key="back-discover"
@@ -574,27 +589,23 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
                 hideGameTemplates ? t`Search assets` : `Search the shop`
               }
               value={searchText}
-              onChange={(newValue: string) => {
-                setSearchText(newValue);
-                if (isOnSearchResultPage) {
-                  // An existing search is already being done: just move to the
-                  // top search results.
-                  shopNavigationState.openSearchResultPage();
-                  const assetsListInterface = assetsList.current;
-                  if (assetsListInterface) {
-                    assetsListInterface.scrollToPosition(0);
-                    assetsListInterface.setPageBreakIndex(0);
-                  }
-                } else {
-                  // A new search is being initiated: navigate to the search page,
-                  // and clear the history as a new search was launched.
-                  if (!!newValue) {
-                    shopNavigationState.clearHistory();
-                    shopNavigationState.openSearchResultPage();
-                    openFiltersPanelIfAppropriate();
-                  }
-                }
-              }}
+              onChange={
+                isOnSearchResultPage
+                  ? // An existing search is already being done: just update the
+                    // search text and the store will update the search results.
+                    setSearchText
+                  : (newValue: string) => {
+                      setSearchText(newValue);
+
+                      // A new search is being initiated: navigate to the search page,
+                      // and clear the history as a new search was launched.
+                      if (!!newValue) {
+                        shopNavigationState.clearHistory();
+                        shopNavigationState.openSearchResultPage();
+                        openFiltersPanelIfAppropriate();
+                      }
+                    }
+              }
               onRequestSearch={() => {}}
               ref={searchBar}
               id="asset-store-search-bar"
@@ -608,9 +619,9 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
           >
             <Tune />
           </IconButton>
-        </LineStackLayout>
+        </LineStackLayout> */}
         <Spacer />
-        <Column noMargin>
+        {/* <Column noMargin>
           <Line justifyContent="space-between" noMargin alignItems="center">
             {(!isOnHomePage || !!openedShopCategory) && (
               <>
@@ -669,7 +680,7 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
               </>
             )}
           </Line>
-        </Column>
+        </Column> */}
         <Line
           expand
           noMargin
@@ -677,8 +688,13 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
             'hidden' /* Somehow required on Chrome/Firefox to avoid children growing (but not on Safari) */
           }
         >
+          <Spacer />
           {isOnHomePage ? (
-            storeError ? (
+            !isOnHomePage ? (
+              console.error(
+                'An error occurred when fetching the store content. Please try again later.'
+              )
+            ) : /* (
               <PlaceholderError onRetry={fetchAssetsAndGameTemplates}>
                 <AlertMessage kind="error">
                   <Trans>
@@ -687,16 +703,17 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
                   </Trans>
                 </AlertMessage>
               </PlaceholderError>
-            ) : publicAssetPacks &&
+            ) */
+            publicAssetPacks &&
               privateAssetPackListingDatas &&
               privateGameTemplateListingDatas ? (
               <AssetsHome
                 ref={assetsHome}
-                publicAssetPacks={publicAssetPacks}
-                privateAssetPackListingDatas={privateAssetPackListingDatas}
-                privateGameTemplateListingDatas={
-                  privateGameTemplateListingDatas
-                }
+                // publicAssetPacks={publicAssetPacks}
+                // privateAssetPackListingDatas={privateAssetPackListingDatas}
+                // privateGameTemplateListingDatas={
+                //   privateGameTemplateListingDatas
+                // }
                 onPublicAssetPackSelection={selectPublicAssetPack}
                 onPrivateAssetPackSelection={selectPrivateAssetPack}
                 onPrivateGameTemplateSelection={selectPrivateGameTemplate}
@@ -707,7 +724,22 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
                 onOpenProfile={onOpenProfile}
               />
             ) : (
-              <PlaceholderLoader />
+              <AssetsHome
+                ref={assetsHome}
+                // publicAssetPacks={publicAssetPacks}
+                // privateAssetPackListingDatas={privateAssetPackListingDatas}
+                // privateGameTemplateListingDatas={
+                //   privateGameTemplateListingDatas
+                // }
+                onPublicAssetPackSelection={selectPublicAssetPack}
+                onPrivateAssetPackSelection={selectPrivateAssetPack}
+                onPrivateGameTemplateSelection={selectPrivateGameTemplate}
+                onCategorySelection={selectShopCategory}
+                openedShopCategory={openedShopCategory}
+                hideGameTemplates={hideGameTemplates}
+                displayPromotions={displayPromotions}
+                onOpenProfile={onOpenProfile}
+              />
             )
           ) : isOnSearchResultPage ? (
             <AssetsList
@@ -767,7 +799,7 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
               }
             />
           ) : null}
-          {canShowFiltersPanel && (
+          {/* {canShowFiltersPanel && (
             <ResponsivePaperOrDrawer
               onClose={() => setIsFiltersPanelOpen(false)}
               open={isFiltersPanelOpen}
@@ -788,7 +820,7 @@ export const AssetStore = React.forwardRef<Props, AssetStoreInterface>(
                 </Column>
               </ScrollView>
             </ResponsivePaperOrDrawer>
-          )}
+          )} */}
         </Line>
       </Column>
     );

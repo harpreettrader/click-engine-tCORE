@@ -46,7 +46,7 @@ export const moveUrlResourcesToCloudFilesIfPrivate = async ({
   const cloudProjectId = fileMetadata.fileIdentifier;
 
   /**
-   * Find the resources stored on GDevelop Cloud that must be downloaded and
+   * Find the resources stored on ClickEngine Cloud that must be downloaded and
    * uploaded into the new project.
    */
   const getResourcesToFetchAndUpload = (

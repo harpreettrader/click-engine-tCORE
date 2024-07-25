@@ -14,7 +14,7 @@ export const checkIfCredentialsRequired = (url: string): boolean => {
   // returned by the server.
   if (isNativeMobileApp()) return false;
 
-  // Any resource stored on the GDevelop Cloud buckets needs the "credentials" of the user,
+  // Any resource stored on the ClickEngine Cloud buckets needs the "credentials" of the user,
   // i.e: its gdevelop.io cookie, to be passed.
   if (checkIfIsGDevelopCloudBucketUrl(url)) return true;
 

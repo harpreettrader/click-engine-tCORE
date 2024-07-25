@@ -67,7 +67,7 @@ export const downloadUrlsToBlobs = async <Item: { url: string }>({
           // Include credentials so that resources on GDevelop cloud are properly fetched
           // with the cookie obtained for the project.
           credentials: checkIfCredentialsRequired(urlWithParameters)
-            ? // Any resource stored on the GDevelop Cloud buckets needs the "credentials" of the user,
+            ? // Any resource stored on the ClickEngine Cloud buckets needs the "credentials" of the user,
               // i.e: its gdevelop.io cookie, to be passed.
               'include'
             : // For other resources, use "same-origin" as done by default by fetch.

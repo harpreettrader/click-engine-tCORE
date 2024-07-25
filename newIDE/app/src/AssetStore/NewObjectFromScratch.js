@@ -18,6 +18,7 @@ import { type ChosenCategory } from '../UI/Search/FiltersChooser';
 import { type AssetShortHeader } from '../Utils/GDevelopServices/Asset';
 import TextButton from '../UI/TextButton';
 import { t, Trans } from '@lingui/macro';
+import LoaderModal from '../UI/LoaderModal';
 import ChevronArrowLeft from '../UI/CustomSvgIcons/ChevronArrowLeft';
 import AssetsList from './AssetsList';
 
@@ -41,16 +42,26 @@ const ObjectListItem = ({
   const iconFilename = enumeratedObjectMetadata.iconFilename || '';
 
   return (
-    <ListItem
-      id={id}
-      leftIcon={<ListIcon src={iconFilename} iconSize={40} isGDevelopIcon />}
-      key={enumeratedObjectMetadata.name}
-      primaryText={enumeratedObjectMetadata.fullName}
-      secondaryText={enumeratedObjectMetadata.description}
-      secondaryTextLines={2}
-      onClick={onClick}
-      disabled={!!enumeratedObjectMetadata.isDependentWithParent}
-    />
+    <>
+      <ListItem
+        id={id}
+        leftIcon={<ListIcon src={iconFilename} iconSize={40} isGDevelopIcon />}
+        key={enumeratedObjectMetadata.name}
+        primaryText={
+          enumeratedObjectMetadata.fullName === 'Sprite'
+            ? 'Explore Sprite and NFTs'
+            : enumeratedObjectMetadata.fullName
+        }
+        secondaryText={
+          enumeratedObjectMetadata.description ===
+          'Animated object which can be used for most elements of a game.'
+            ? 'Animated object and import yous NFTs and Add to scene'
+            : enumeratedObjectMetadata.description
+        }
+        secondaryTextLines={2}
+        onClick={onClick}
+      />
+    </>
   );
 };
 
@@ -108,6 +119,7 @@ export const CustomObjectPackResults = ({
           }}
         />
       </Column>
+      <LoaderModal show={isAssetBeingInstalled} />
     </>
   );
 };

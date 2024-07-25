@@ -485,7 +485,9 @@ function NewObjectDialog({
                     id: 'asset-store-tab',
                   },
                   {
-                    label: <Trans>New object from scratch</Trans>,
+                    label: (
+                      <Trans>New object And explore NFTs With Sprite</Trans>
+                    ),
                     value: 'new-object',
                     id: 'new-object-from-scratch-tab',
                   },

@@ -228,8 +228,8 @@ export const FileToCloudProjectResourceUploader = ({
       ) : !canUploadWithThisStorageProvider ? (
         <AlertMessage kind="warning">
           <Trans>
-            Your need to first save your game on GDevelop Cloud to upload your
-            own resources.
+            Your need to first save your game on ClickEngine Cloud to upload
+            your own resources.
           </Trans>
         </AlertMessage>
       ) : null}

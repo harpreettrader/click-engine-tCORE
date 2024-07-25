@@ -271,7 +271,7 @@ namespace gdjs {
             credentials: this._resourceLoader.checkIfCredentialsRequired(
               resource.file
             )
-              ? // Any resource stored on the GDevelop Cloud buckets needs the "credentials" of the user,
+              ? // Any resource stored on the ClickEngine Cloud buckets needs the "credentials" of the user,
                 // i.e: its gdevelop.io cookie, to be passed.
                 'include'
               : // For other resources, use "same-origin" as done by default by fetch.

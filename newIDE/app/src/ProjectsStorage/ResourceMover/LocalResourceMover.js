@@ -188,7 +188,7 @@ const movers: {
     };
   },
   // When saving a Cloud project locally, all resources are downloaded (including
-  // the ones on GDevelop Cloud or private game templates).
+  // the ones on ClickEngine Cloud or private game templates).
   [`${CloudStorageProvider.internalName}=>${
     LocalFileStorageProvider.internalName
   }`]: ({ project, newFileMetadata, onProgress, authenticatedUser }) =>
@@ -227,7 +227,7 @@ const movers: {
   }`]: moveUrlResourcesToCloudProject,
   // Nothing to move around when going from a project on a public URL
   // to a cloud project (we could offer an option one day though to download
-  // and upload the URL resources on GDevelop Cloud).
+  // and upload the URL resources on ClickEngine Cloud).
   [`${UrlStorageProvider.internalName}=>${
     CloudStorageProvider.internalName
   }`]: moveUrlResourcesToCloudProject,

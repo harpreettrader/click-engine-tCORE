@@ -189,7 +189,7 @@ export default class BrowserS3PreviewLauncher extends React.Component<
         );
       }
 
-      // The token, if any, to be used to read resources on GDevelop Cloud buckets.
+      // The token, if any, to be used to read resources on ClickEngine Cloud buckets.
       const gdevelopResourceToken = getGDevelopResourceJwtToken();
       if (gdevelopResourceToken)
         previewExportOptions.setGDevelopResourceToken(gdevelopResourceToken);

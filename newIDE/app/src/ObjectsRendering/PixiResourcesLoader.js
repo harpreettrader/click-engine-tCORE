@@ -120,7 +120,7 @@ const load3DModel = (
 };
 
 const determineCrossOrigin = (url: string) => {
-  // Any resource stored on the GDevelop Cloud buckets needs the "credentials" of the user,
+  // Any resource stored on the ClickEngine Cloud buckets needs the "credentials" of the user,
   // i.e: its gdevelop.io cookie, to be passed.
   if (checkIfCredentialsRequired(url)) return 'use-credentials';
 

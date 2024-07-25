@@ -48,7 +48,7 @@ const isURL = (filename: string) => {
 
 export default ({
   internalName: 'Cloud',
-  name: t`GDevelop Cloud`,
+  name: t`ClickEngine Cloud`,
   renderIcon: props => <Cloud fontSize={props.size} />,
   hiddenInOpenDialog: true,
   needUserAuthentication: true,

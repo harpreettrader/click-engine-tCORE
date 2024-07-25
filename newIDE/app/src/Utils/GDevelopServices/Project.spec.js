@@ -65,7 +65,7 @@ describe('Project service', () => {
         )
       ).toBe('Pea Happy.png');
     });
-    it('just extracts the filename from an URL which is not from GDevelop Cloud (or not valid)', () => {
+    it('just extracts the filename from an URL which is not from ClickEngine Cloud (or not valid)', () => {
       expect(
         extractDecodedFilenameFromProjectResourceUrl('example.com/test.png')
       ).toBe('test.png');
@@ -90,7 +90,7 @@ describe('Project service', () => {
         '6ef87bc678921eb4bfa2d04e5dc6a16b75f7b239f3163d0c5efe64d4cc501711-Pea-Happy.png?some=parameter'
       );
     });
-    it('just extracts the filename from an URL which is not from GDevelop Cloud, if encoded', () => {
+    it('just extracts the filename from an URL which is not from ClickEngine Cloud, if encoded', () => {
       expect(
         extractDecodedFilenameFromProjectResourceUrl(
           'example.com/test%20file.png'

@@ -49,7 +49,7 @@ export const moveUrlResourcesToCloudProject = async ({
   const newCloudProjectId = newFileMetadata.fileIdentifier;
 
   /**
-   * Find the resources stored on GDevelop Cloud that must be downloaded and
+   * Find the resources stored on ClickEngine Cloud that must be downloaded and
    * uploaded into the new project.
    */
   const getResourcesToFetchAndUpload = async (
@@ -215,7 +215,7 @@ export const ensureNoCloudProjectResources = async ({
         result.erroredResources.push({
           resourceName: resource.getName(),
           error: new Error(
-            'Resources uploaded to GDevelop Cloud are not supported on Google Drive.'
+            'Resources uploaded to ClickEngine Cloud are not supported on Google Drive.'
           ),
         });
       } else if (isBlobURL(resourceFile)) {
