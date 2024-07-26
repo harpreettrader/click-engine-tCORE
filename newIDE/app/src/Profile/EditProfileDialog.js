@@ -432,7 +432,7 @@ const EditProfileDialog = ({
     <I18n>
       {({ i18n }) => (
         <Dialog
-          title={<Trans>Edit your GDevelop profile</Trans>}
+          title={<Trans>Edit your ClickEngine profile</Trans>}
           actions={actions}
           secondaryActions={secondaryActions}
           maxWidth="sm"
@@ -470,7 +470,7 @@ const EditProfileDialog = ({
                 disabled={actionInProgress}
                 maxLength={discordUsernameConfig.maxLength}
                 helperMarkdownText={i18n._(
-                  t`Add your Discord username to get access to a dedicated channel if you have a Gold or Pro subscription! Join the [GDevelop Discord](https://discord.gg/gdevelop).`
+                  t`Add your Discord username to get access to a dedicated channel if you have a Gold or Pro subscription! Join the [ClickEngine Discord]().`
                 )}
               />
               <TextField
@@ -480,7 +480,7 @@ const EditProfileDialog = ({
                 multiline
                 rows={3}
                 rowsMax={5}
-                translatableHintText={t`What are you using GDevelop for?`}
+                translatableHintText={t`What are you using ClickEngine for?`}
                 onChange={(e, value) => {
                   setDescription(value);
                 }}
@@ -644,7 +644,9 @@ const EditProfileDialog = ({
                 <Trans>Notifications</Trans>
               </Text>
               <Checkbox
-                label={<Trans>I want to receive the GDevelop Newsletter</Trans>}
+                label={
+                  <Trans>I want to receive the ClickEngine Newsletter</Trans>
+                }
                 checked={getNewsletterEmail}
                 onCheck={(e, value) => {
                   setGetNewsletterEmail(value);

@@ -445,25 +445,25 @@ export const communityLinksConfig = {
       ) {
         return {
           title: t`You're awesome!`,
-          message: t`Thanks for starring GDevelop repository. We added credits to your account as a thank you gift.`,
+          message: t`Thanks for starring ClickEngine repository. We added credits to your account as a thank you gift.`,
         };
       } else if (responseCode === 'github-star/repository-not-starred') {
         return {
           title: t`We could not find your GitHub star`,
-          message: t`Make sure you star the repository called 4ian/GDevelop with your GitHub user and try again.`,
+          message: t`Make sure you star the repository called ClickEngine with your GitHub user and try again.`,
         };
       } else if (responseCode === 'github-star/user-not-found') {
         return {
           title: t`We could not find your GitHub user and star`,
-          message: t`Make sure you create your GitHub account, star the repository called 4ian/GDevelop, enter your username here and try again.`,
+          message: t`Make sure you create your GitHub account, star the repository called ClickEngine, enter your username here and try again.`,
         };
       }
       return null;
     },
     getRewardMessage: (hasBadge: boolean, rewardValueInCredits: string) =>
       !hasBadge
-        ? t`[Star the GDevelop repository](https://github.com/4ian/GDevelop) and add your GitHub username here to get ${rewardValueInCredits} free credits as a thank you!`
-        : t`Thank you for supporting the GDevelop open-source community. Credits were added to your account as a thank you.`,
+        ? t`[Star the ClickEngine repository](https://github.com/Gola-k/ClickEngineFinal) and add your GitHub username here to get ${rewardValueInCredits} free credits as a thank you!`
+        : t`Thank you for supporting the ClickEngine open-source community. Credits were added to your account as a thank you.`,
   },
   twitterUsername: {
     icon: <Twitter />,
@@ -476,17 +476,17 @@ export const communityLinksConfig = {
       ) {
         return {
           title: t`You're awesome!`,
-          message: t`Thanks for following GDevelop. We added credits to your account as a thank you gift.`,
+          message: t`Thanks for following ClickEngine. We added credits to your account as a thank you gift.`,
         };
       } else if (responseCode === 'twitter-follow/account-not-followed') {
         return {
           title: t`We could not check your follow`,
-          message: t`Make sure you follow the GDevelop account and try again.`,
+          message: t`Make sure you follow the ClickEngine account and try again.`,
         };
       } else if (responseCode === 'twitter-follow/user-not-found') {
         return {
           title: t`We could not find your user`,
-          message: t`Make sure your username is correct, follow the GDevelop account and try again.`,
+          message: t`Make sure your username is correct, follow the ClickEngine account and try again.`,
         };
       }
 
@@ -494,8 +494,8 @@ export const communityLinksConfig = {
     },
     getRewardMessage: (hasBadge: boolean, rewardValueInCredits: string) =>
       !hasBadge
-        ? t`[Follow GDevelop](https://twitter.com/GDevelopApp) and enter your Twitter username here to get ${rewardValueInCredits} free credits as a thank you!`
-        : t`Thank you for supporting GDevelop. Credits were added to your account as a thank you.`,
+        ? t`[Follow ClickEngine]() and enter your Twitter username here to get ${rewardValueInCredits} free credits as a thank you!`
+        : t`Thank you for supporting ClickEngine. Credits were added to your account as a thank you.`,
   },
   facebookUsername: {
     icon: <Facebook />,
@@ -522,17 +522,17 @@ export const communityLinksConfig = {
       ) {
         return {
           title: t`You're awesome!`,
-          message: t`Thanks for following GDevelop. We added credits to your account as a thank you gift.`,
+          message: t`Thanks for following ClickEngine. We added credits to your account as a thank you gift.`,
         };
       } else if (responseCode === 'tiktok-follow/account-not-followed') {
         return {
           title: t`We could not check your follow`,
-          message: t`Make sure you follow the GDevelop account and try again.`,
+          message: t`Make sure you follow the ClickEngine account and try again.`,
         };
       } else if (responseCode === 'tiktok-follow/user-not-found') {
         return {
           title: t`We could not find your user`,
-          message: t`Make sure your username is correct, follow the GDevelop account and try again.`,
+          message: t`Make sure your username is correct, follow the ClickEngine account and try again.`,
         };
       }
 
@@ -540,8 +540,8 @@ export const communityLinksConfig = {
     },
     getRewardMessage: (hasBadge: boolean, rewardValueInCredits: string) =>
       !hasBadge
-        ? t`[Follow GDevelop](https://tiktok.com/@gdevelop) and enter your TikTok username here to get ${rewardValueInCredits} free credits as a thank you!`
-        : t`Thank you for supporting GDevelop. Credits were added to your account as a thank you.`,
+        ? t`[Follow ClickEngine]() and enter your TikTok username here to get ${rewardValueInCredits} free credits as a thank you!`
+        : t`Thank you for supporting ClickEngine. Credits were added to your account as a thank you.`,
   },
   instagramUsername: {
     icon: <Instagram />,

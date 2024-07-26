@@ -1092,9 +1092,9 @@ export default class AuthenticatedUserProvider extends React.Component<
       const username = profile ? profile.username : null;
       this.showUserSnackbar({
         message: username ? (
-          <Trans>👋 Welcome to GDevelop {username}!</Trans>
+          <Trans>👋 Welcome to ClickEngine {username}!</Trans>
         ) : (
-          <Trans>👋 Welcome to GDevelop!</Trans>
+          <Trans>👋 Welcome to ClickEngine!</Trans>
         ),
       });
     } catch (apiCallError) {
@@ -1251,7 +1251,7 @@ export default class AuthenticatedUserProvider extends React.Component<
   showUserSnackbar = ({ message }: { message: ?React.Node }) => {
     this.setState({
       // The message is wrapped here to prevent crashes when Google Translate
-      // translates the website. See https://github.com/4ian/GDevelop/issues/3453.
+      // translates the website. See https://github.com/4ian/ClickEngine/issues/3453.
       userSnackbarMessage: message ? <span>{message}</span> : null,
     });
   };

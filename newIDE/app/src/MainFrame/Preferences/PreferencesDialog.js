@@ -159,11 +159,13 @@ const PreferencesDialog = ({ i18n, onClose }: Props) => {
                 You can contribute and{' '}
                 <Link
                   href={
-                    'https://github.com/4ian/GDevelop/blob/master/newIDE/README-themes.md'
+                    ''
+                    // 'https://github.com/4ian/GDevelop/blob/master/newIDE/README-themes.md'
                   }
                   onClick={() =>
                     Window.openExternalURL(
-                      'https://github.com/4ian/GDevelop/blob/master/newIDE/README-themes.md'
+                      ''
+                      // 'https://github.com/4ian/GDevelop/blob/master/newIDE/README-themes.md'
                     )
                   }
                 >

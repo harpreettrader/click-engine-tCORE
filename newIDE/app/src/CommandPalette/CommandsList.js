@@ -39,6 +39,7 @@ export type CommandName =
   | 'TOGGLE_LAYERS_PANEL'
   | 'SCENE_EDITOR_UNDO'
   | 'SCENE_EDITOR_REDO'
+  | 'RENAME_SCENE_OBJECT'
   | 'DELETE_INSTANCES'
   | 'TOGGLE_WINDOW_MASK'
   | 'TOGGLE_GRID'
@@ -88,7 +89,7 @@ const commandsList: { [CommandName]: CommandMetadata } = {
   // General commands
   QUIT_APP: {
     area: 'GENERAL',
-    displayText: t`Close GDevelop`,
+    displayText: t`Close ClickEngine`,
     handledByElectron: true,
   },
   OPEN_PROJECT_MANAGER: {
@@ -241,6 +242,10 @@ const commandsList: { [CommandName]: CommandMetadata } = {
     area: 'SCENE',
     displayText: t`Redo the last changes`,
     noShortcut: true,
+  },
+  RENAME_SCENE_OBJECT: {
+    area: 'SCENE',
+    displayText: t`Rename the selected object`,
   },
   DELETE_INSTANCES: {
     area: 'SCENE',

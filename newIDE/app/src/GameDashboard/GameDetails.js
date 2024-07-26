@@ -47,7 +47,7 @@ import { sendGameDetailsOpened } from '../Utils/Analytics/EventSender';
 import useAlertDialog from '../UI/Alert/useAlertDialog';
 import { extractGDevelopApiErrorStatusAndCode } from '../Utils/GDevelopServices/Errors';
 import CreditsStatusBanner from '../Credits/CreditsStatusBanner';
-import MarketingPlans from '../MarketingPlans/MarketingPlans';
+// import MarketingPlans from '../MarketingPlans/MarketingPlans';
 import MultiplayerAdmin from './MultiplayerAdmin';
 
 export type GameDetailsTab =
@@ -55,9 +55,9 @@ export type GameDetailsTab =
   | 'builds'
   | 'feedback'
   | 'analytics'
-  | 'multiplayer'
-  | 'leaderboards'
-  | 'marketing';
+  // | 'multiplayer'
+  | 'leaderboards';
+// | 'marketing';
 
 export const gameDetailsTabs: TabOptions<GameDetailsTab> = [
   {
@@ -76,18 +76,18 @@ export const gameDetailsTabs: TabOptions<GameDetailsTab> = [
     value: 'analytics',
     label: <Trans>Analytics</Trans>,
   },
-  {
-    value: 'multiplayer',
-    label: <Trans>Multiplayer</Trans>,
-  },
+  // {
+  //   value: 'multiplayer',
+  //   label: <Trans>Multiplayer</Trans>,
+  // },
   {
     value: 'leaderboards',
     label: <Trans>Leaderboards</Trans>,
   },
-  {
-    value: 'marketing',
-    label: <Trans>Marketing & Ads</Trans>,
-  },
+  // {
+  //   value: 'marketing',
+  //   label: <Trans>Marketing & Ads</Trans>,
+  // },
 ];
 
 type Props = {|
@@ -403,9 +403,9 @@ const GameDetails = ({
             {currentTab === 'leaderboards' ? (
               <LeaderboardAdmin gameId={game.id} onLoading={onLoading} />
             ) : null}
-            {currentTab === 'multiplayer' ? (
+            {/* {currentTab === 'multiplayer' ? (
               <MultiplayerAdmin gameId={game.id} />
-            ) : null}
+            ) : null} */}
             {currentTab === 'details' ? (
               publicGameError ? (
                 <PlaceholderError onRetry={loadPublicGame}>
@@ -587,7 +587,7 @@ const GameDetails = ({
                 game={game}
               />
             ) : null}
-            {currentTab === 'marketing' ? (
+            {/* {currentTab === 'marketing' ? (
               <ColumnStackLayout noMargin expand>
                 <CreditsStatusBanner displayPurchaseAction />
                 <Text size="sub-title">
@@ -599,7 +599,7 @@ const GameDetails = ({
                   onGameUpdated={handleGameUpdated}
                 />
               </ColumnStackLayout>
-            ) : null}
+            ) : null} */}
           </Line>
           {publicGame && project && isPublicGamePropertiesDialogOpen && (
             <PublicGamePropertiesDialog

@@ -124,7 +124,7 @@ const CreateAccountForm = ({
             disabled={createAccountInProgress}
           />
           <Checkbox
-            label={<Trans>I want to receive the GDevelop Newsletter</Trans>}
+            label={<Trans>I want to receive the ClickEngine Newsletter</Trans>}
             checked={optInNewsletterEmail}
             onCheck={(e, value) => {
               onChangeOptInNewsletterEmail(value);

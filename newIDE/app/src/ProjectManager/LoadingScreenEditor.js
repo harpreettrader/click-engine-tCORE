@@ -97,7 +97,7 @@ export const LoadingScreenEditor = ({
                 <Checkbox
                   label={
                     <Trans>
-                      Display GDevelop logo at startup (in exported game)
+                      Display ClickEngine logo at startup (in exported game)
                     </Trans>
                   }
                   checked={loadingScreen.isGDevelopLogoShownDuringLoadingScreen()}
@@ -120,7 +120,7 @@ export const LoadingScreenEditor = ({
               <Column expand noMargin justifyContent="center">
                 <SelectField
                   fullWidth
-                  floatingLabelText={<Trans>GDevelop logo style</Trans>}
+                  floatingLabelText={<Trans>ClickEngine logo style</Trans>}
                   value={loadingScreen.getGDevelopLogoStyle()}
                   onChange={(e, i, newGdevelopLogoStyle: string) => {
                     const currentGDevelopLogoStyle = loadingScreen.getGDevelopLogoStyle();
@@ -147,7 +147,7 @@ export const LoadingScreenEditor = ({
               </Column>
             </ResponsiveLineStackLayout>
 
-            <ResponsiveLineStackLayout noMargin>
+            {/* <ResponsiveLineStackLayout noMargin>
               <Column expand noMargin justifyContent="center">
                 <Checkbox
                   label={
@@ -243,7 +243,7 @@ export const LoadingScreenEditor = ({
                   </Trans>
                 </Text>
               </GetSubscriptionCard>
-            )}
+            )} */}
           </ColumnStackLayout>
           <Text size="section-title">
             <Trans>Loading screen</Trans>
@@ -541,7 +541,7 @@ export const LoadingScreenEditor = ({
             <AlertMessage kind="info">
               <Trans>
                 Progress bar fade in delay and duration will be applied to
-                GDevelop logo.
+                ClickEngine logo.
               </Trans>
             </AlertMessage>
           ) : null}
@@ -551,7 +551,7 @@ export const LoadingScreenEditor = ({
             onChangeSubscription={onChangeSubscription}
             mode="mandatory"
             id="Disable GDevelop splash at startup"
-            title={<Trans>Disable GDevelop splash at startup</Trans>}
+            title={<Trans>Disable ClickEngine splash at startup</Trans>}
           />
         </ColumnStackLayout>
       )}

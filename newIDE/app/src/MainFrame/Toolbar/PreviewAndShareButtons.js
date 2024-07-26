@@ -183,7 +183,7 @@ const PreviewAndShareButtons = React.memo<PreviewAndShareButtonsProps>(
 
     return (
       <LineStackLayout noMargin>
-        <FlatButtonWithSplitMenu
+        {/* <FlatButtonWithSplitMenu
           primary
           onClick={onHotReloadPreview}
           disabled={!isPreviewEnabled}
@@ -200,13 +200,13 @@ const PreviewAndShareButtons = React.memo<PreviewAndShareButtonsProps>(
           id="toolbar-preview-button"
           splitMenuButtonId="toolbar-preview-split-menu-button"
           buildMenuTemplate={previewBuildMenuTemplate}
-        />
+        /> */}
         <ResponsiveRaisedButton
           primary
           onClick={onShareClick}
           disabled={!isSharingEnabled}
           icon={<PublishIcon />}
-          label={<Trans>Share</Trans>}
+          label={<Trans>Share and Preview</Trans>}
           // This ID is used for guided lessons, let's keep it stable.
           id="toolbar-publish-button"
         />

@@ -258,13 +258,15 @@ export const createProductAuthorizedUrl = (
 
 export const isPrivateAssetResourceAuthorizedUrl = (url: string): boolean =>
   url.startsWith('https://private-assets.gdevelop.io/') ||
-  url.startsWith('https://private-assets-dev.gdevelop.io/');
+  url.startsWith('https://private-assets-dev.gdevelop.io/') ||
+  url.startsWith('https://gateway.pinata.cloud/');
 
 export const isPrivateGameTemplateResourceAuthorizedUrl = (
   url: string
 ): boolean =>
   url.startsWith('https://private-game-templates.gdevelop.io/') ||
-  url.startsWith('https://private-game-templates-dev.gdevelop.io/');
+  url.startsWith('https://private-game-templates-dev.gdevelop.io/') ||
+  url.startsWith('https://gateway.pinata.cloud/');
 
 export const isProductAuthorizedResourceUrl = (url: string): boolean =>
   isPrivateAssetResourceAuthorizedUrl(url) ||
