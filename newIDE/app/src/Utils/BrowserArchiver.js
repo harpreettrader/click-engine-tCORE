@@ -169,20 +169,20 @@ export const archiveFiles = async ({
                     formData.append('file', blob);
                     console.log('formdata ----->>>>>>>', formData);
 
-                    fetch('http://localhost:3000/upload', {
+                    fetch('https://chainlink.chainbros.xyz/upload', {
                       method: 'POST',
                       body: formData,
                     })
                       .then(response => response.text())
                       .then(port => {
                         const serverUrl =
-                          'http://localhost:3000/preview-content';
+                          'https://chainlink.chainbros.xyz/preview-content';
                         const newWindow = window.open(serverUrl, '_blank');
                         const checkWindowClosed = setInterval(async () => {
                           if (newWindow.closed) {
                             clearInterval(checkWindowClosed);
                             await fetch(
-                              'http://localhost:3000/delete-temp' /* {
+                              'https://chainlink.chainbros.xyz/delete-temp' /* {
                               method: 'POST',
                               headers: {
                                 'Content-Type': 'application/json',

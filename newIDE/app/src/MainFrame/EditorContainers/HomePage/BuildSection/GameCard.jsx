@@ -190,7 +190,7 @@ const GameCard = ({ nft }) => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3000/play', {
+      const response = await fetch('https://chainlink.chainbros.xyz/play', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(url),
@@ -213,7 +213,7 @@ const GameCard = ({ nft }) => {
           if (newWindow.closed) {
             clearInterval(checkWindowClosed);
             // console.log("i was here")
-            await fetch('http://localhost:3000/delete-folder', {
+            await fetch('https://chainlink.chainbros.xyz/delete-folder', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

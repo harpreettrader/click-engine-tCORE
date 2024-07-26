@@ -156,7 +156,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
   // });
   // res.send(`Serving extracted files with npx serve on port ...`);
 
-  res.send(`http://localhost:3000/preview-content`); // Replace with actual URL
+  res.send(`https://chainlink.chainbros.xyz/preview-content`); // Replace with actual URL
 });
 
 app.post("/play", async (req, res) => {
@@ -185,7 +185,7 @@ app.post("/play", async (req, res) => {
   } catch (error) {
     res.status(404);
   } finally {
-    res.send(`http://localhost:3000/folder-content/${fileName}`);
+    res.send(`https://chainlink.chainbros.xyz/folder-content/${fileName}`);
   }
 });
 
