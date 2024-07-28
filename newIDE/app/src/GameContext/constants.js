@@ -1,4 +1,4 @@
 import GameMarketplace from './GameMarketplace.json';
 
-export const GameMarketAddress = '0x914Cfe705f88EF0c8DF9e6BDf644C4f03239F113';
+export const GameMarketAddress = '0xF8043f29598153969CFB696deA336E967EF5ef33';
 export const GameMarketAddressABI = GameMarketplace.abi;

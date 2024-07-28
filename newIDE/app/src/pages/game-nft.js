@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { GameContext } from '../GameContext/GameContext';
+import './Gamenft.css';
 
 const Gamenft = () => {
   const {
-    nftCurrency,
-    isLoadingNFT,
     handleImageUpload,
     handleFileUpload,
     handleSubmit,
@@ -14,106 +13,128 @@ const Gamenft = () => {
 
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
-  // const [name, setName] = useState('');
-  // const [description, setDescription] = useState('');
-  // const [price, setPrice] = useState('');
+  const [fileUploaded, setFileUploaded] = useState(false);
+  const [imageUploaded, setImageUploaded] = useState(false);
   const [formInput, setFormInput] = useState({
     price: '',
     name: '',
     description: '',
   });
+  const [loading, setLoading] = useState(false);
+
   const handleInputChange = (key, value) => {
-    setFormInput(prevState => ({
+    setFormInput((prevState) => ({
       ...prevState,
       [key]: value,
     }));
   };
 
-  const handleFileChange = e => {
+  const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
 
-  const handleImageChange = e => {
+  const handleImageChange = (e) => {
     setImage(e.target.files[0]);
   };
 
-  // const handleNameChange = e => {
-  //   setName(e.target.value);
-  // };
-
-  // const handleDescriptionChange = e => {
-  //   setDescription(e.target.value);
-  // };
-
-  // const handlePriceChange = price => {
-  //   // setPrice(prevState => ({ ...prevState, p }));
-  //   setPrice(price);
-  // };
-
-  // const handlePriceChange = (key, value) => {
-  //   setPrice(prevState => ({
-  //     ...prevState,
-  //     [key]: value,
-  //   }));
-  // };
-
-  const handleFormSubmit = async e => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      if (
-        !formInput.name ||
-        !formInput.description ||
-        !formInput.price ||
-        !file ||
-        !image
-      ) {
+      if (!formInput.name || !formInput.description || !formInput.price || !file || !image) {
         throw new Error('Please fill in all fields and upload files.');
       }
+
+      await handleFileUpload(file);
+      setFileUploaded(true);
+
+      await handleImageUpload(image);
+      setImageUploaded(true);
+
       const finalURL = await handleSubmit(formInput);
       const accessId = generateAccessId();
-      createGameNft(accessId, finalURL, formInput.price);
+      await createGameNft(accessId, finalURL, formInput.price);
     } catch (error) {
       console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const uploadFile = async () => {
+    if (file) {
+      await handleFileUpload(file);
+      setFileUploaded(true);
+    }
+  };
+
+  const uploadImage = async () => {
+    if (image) {
+      await handleImageUpload(image);
+      setImageUploaded(true);
     }
   };
 
   return (
-    <div>
-      <h1>Upload Files</h1>
+    <div className="container">
+      <h1>Create Game NFT</h1>
       <form onSubmit={handleFormSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        <button type="button" onClick={() => handleFileUpload(file)}>
-          Upload File
+        <div className="form-group">
+          <label htmlFor="file">Choose File</label>
+          <input type="file" id="file" onChange={handleFileChange} />
+          {file && <span className="file-name">{file.name}</span>}
+          <button
+            type="button"
+            onClick={uploadFile}
+            className={fileUploaded ? 'btn-uploaded' : 'btn-upload'}
+          >
+            Upload File
+          </button>
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">Choose Image</label>
+          <input type="file" id="image" onChange={handleImageChange} />
+          {image && <span className="file-name">{image.name}</span>}
+          <button
+            type="button"
+            onClick={uploadImage}
+            className={imageUploaded ? 'btn-uploaded' : 'btn-upload'}
+          >
+            Upload Image
+          </button>
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter name"
+            onChange={(e) => handleInputChange('name', e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            placeholder="Enter description"
+            onChange={(e) => handleInputChange('description', e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price (ETH)</label>
+          <input
+            type="number"
+            id="price"
+            step="0.0001"
+            placeholder="Enter price"
+            onChange={(e) => handleInputChange('price', e.target.value)}
+          />
+        </div>
+        <button type="submit" className="submit-btn" disabled={!fileUploaded || !imageUploaded || loading}>
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
-        <br />
-        <input type="file" onChange={handleImageChange} />
-        <button type="button" onClick={() => handleImageUpload(image)}>
-          Upload Image
-        </button>
-        <br />
-        <input
-          type="text"
-          placeholder="Name"
-          // value={name}
-          onChange={e => handleInputChange('name', e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="Description"
-          // value={description}
-          onChange={e => handleInputChange('description', e.target.value)}
-        />
-        <br />
-        <input
-          type="number"
-          step="0.0001"
-          placeholder="Price (ETH)"
-          // value={price}
-          onChange={e => handleInputChange('price', e.target.value)}
-        />
-        <br />
-        <button type="submit">Submit</button>
+        {loading && <div className="loader"></div>}
       </form>
     </div>
   );

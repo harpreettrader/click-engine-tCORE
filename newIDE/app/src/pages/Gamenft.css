@@ -1,0 +1,123 @@
+/* Gamenft.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    margin: 10px auto;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  input[type="text"]::placeholder,
+  input[type="number"]::placeholder {
+    color: #999;
+  }
+  
+  button {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .btn-upload {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .btn-uploaded {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .file-name {
+    display: block;
+    margin-top: 5px;
+    color: #000;
+    font-size: 14px;
+  }
+  
+  .loader {
+    margin: 10px auto;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #007bff;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

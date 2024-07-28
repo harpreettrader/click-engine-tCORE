@@ -166,7 +166,7 @@ export const NFTProvider = ({ children }) => {
 
     // Replace with your own RPC endpoint
     const provider = new ethers.JsonRpcProvider(
-      'https://testnet-rpc.ubitscan.io/'
+      'https://rpc.test.btcs.network'
     );
     const contract = fetchContract(provider);
 
