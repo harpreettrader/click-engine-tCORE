@@ -2,7 +2,7 @@ ClickEngine is a full-featured, no-code, open-source game development software. 
 
 ## Open the netlify link here
 
-[ClickEngine-Netlify](https://6681a1a8fab9d0611bb7b231--polite-pixie-86e8ff.netlify.app/)
+[ClickEngine-Netlify](https://clickenginetcore.netlify.app/)
 
 ## Overview of the architecture
 
